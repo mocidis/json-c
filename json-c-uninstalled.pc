@@ -1,0 +1,11 @@
+prefix=
+exec_prefix=
+libdir=/home/ubuntu/workspace/json-c
+includedir=/home/ubuntu/workspace/json-c
+
+Name: json
+Description: JSON implementation in C
+Version: 0.12.99
+Requires:
+Libs:  -L/home/ubuntu/workspace/json-c -ljson-c
+Cflags: -I/home/ubuntu/workspace/json-c
