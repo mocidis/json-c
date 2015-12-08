@@ -45,6 +45,6 @@ rm -rf $INSTALL_DIR/include/json-c
 rm -rf $INSTALL_DIR/lib/libjson-c.*
 make distclean
 ./autogen.sh
-./configure --prefix=$INSTALL_DIR
+./configure --enable-shared=no --enable-static --prefix=$INSTALL_DIR
 make
 make install
