@@ -5,18 +5,24 @@ LINUX_X86_64=$PWD/../libs/linux-x86_64
 LINUX_I686=$PWD/../libs/linux-i686
 MINGW=$PWD/../libs/mingw32-i586
 MACOS=$PWD/../libs/darwin-x86_64
-EXT=""
+MSYS=$PWD/../libs/msys-i686
 #MACOS
 uname -a | grep "Darwin"
 if [ $? == 0 ]; then
 	INSTALL_DIR=$MACOS
-	EXT="x86_64-apple-darwin12.5.0"
 fi
 #MINGW
 uname -a | grep "MINGW32"
 if [ $? == 0 ]; then
 	INSTALL_DIR=$MINGW
-	EXT="i586-pc-mingw32"
+fi
+#MSYS
+uname -a | grep "MSYS"
+if [ $? == 0 ]; then
+	ARCHITECTURE=`uname -m`
+	if [ $ARCHITECTURE = "i686" ]; then
+		INSTALL_DIR=$MSYS
+	fi
 fi
 #Linux
 uname -a | grep "Linux"
@@ -24,10 +30,8 @@ if [ $? == 0 ]; then
 	ARCHITECTURE=`uname -m`
 	if [ $ARCHITECTURE = "i686" ]; then
 		INSTALL_DIR=$LINUX_I686
-		EXT="i686-pc-linux-gnu"
 	elif [ $ARCHITECTURE = "x86_64" ]; then
 		INSTALL_DIR=$LINUX_X86_64
-		EXT="x86_64-unknown-linux-gnu"
 	fi
 fi
 
