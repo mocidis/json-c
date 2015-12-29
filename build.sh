@@ -51,7 +51,7 @@ if [ $ARM == 1 ]; then
 	rm -rf $LINUX_ARMV7L/lib/libjson-c.*
 	make distclean
 	./autogen.sh
-	./configure --host=arm-linux-gnueabi --enable-shared=no --enable-static --prefix=$LINUX_ARMV7L
+	./configure --host=arm-linux-gnueabihf --enable-shared=no --enable-static --prefix=$LINUX_ARMV7L
 	make
 	make install
 fi
